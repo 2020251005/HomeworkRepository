@@ -85,6 +85,8 @@ h3{/*소제목*/
     flex-wrap: nowrap;
 }
 
+a{text-decoration: none;}
+
 nav div:hover{
     background-color: rgb(167, 165, 165);
     font-weight:bold;
