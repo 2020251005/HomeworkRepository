@@ -1,3 +1,7 @@
+label, select, input{
+    width: 100%;
+}
+
 .left{/*왼쪽 카테고리열*/
     border:1px solid black;
     width: 25%;
