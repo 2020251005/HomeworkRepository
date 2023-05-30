@@ -8,18 +8,18 @@
 
     </head>
     <body>
-        <h3>고구마맛탕 레시피(예시)</h3><br><br>
+        <h3>달콤 쫀득 고구마 치즈스틱</h3><br><br>
         <div class="share">
             <p>레시피 공유</p>
             <a id="button_Url" class="link-icon url" href="javascript:shareUrl();"></a><!--url복사-->
-            <a id="button_Kakao" @click="shareKakao" class="link-icon kakao" href="javascript:shareKakao();"></a><!--카카오톡-->
-            <a id="button_Instagram" class="link-icon instagram" href="javascript:shareInstagram();"></a><!--인스타그램-->
             <a id="button_Facebook" class="link-icon facebook" href="javascript:shareFacebook();"></a><!--페이스북-->
             <a id="button_Twitter" class="link-icon twitter" href="javascript:shareTwitter();"></a><!--트위터-->
+            <a id="button_Band" class="link-icon band" href="javascript:shareBand();"></a><!--밴드-->
+            <a id="button_Line" class="link-icon line" href="javascript:shareLine();"></a><!--라인-->
+            
 
         </div>
         <script>
-            //주소는 일단 그냥 네이버로 다 넣어뒀습니다
             function shareTwitter() {
                 var sendText = "Yummiverse에서 레시피를 공유해준뎅~!~!";
                 var sendUrl = window.document.location.href;  //url에는 현재 주소값을 넣어줌=현재 레시피가 나와있는 주소
@@ -30,6 +30,18 @@
                 var sendUrl = window.document.location.href; //url에는 현재 주소값을 넣어줌=현재 레시피가 나와있는 주소
                 window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
             }
+
+            function shareLine() {
+                var sendUrl = window.document.location.href; //url에는 현재 주소값을 넣어줌=현재 레시피가 나와있는 주소
+                window.open("http://social-plugins.line.me/lineit/share?url=" + sendUrl);
+            }
+
+            function shareBand() {
+                var sendText = "Yummiverse에서 레시피를 공유해준뎅~!~!";
+                var sendUrl = window.document.location.href;  //url에는 현재 주소값을 넣어줌=현재 레시피가 나와있는 주소
+                window.open("http://www.band.us/plugin/share?body=" + sendUrl + "&route=" + sendText);
+            }
+
 
             function shareUrl(){
 
