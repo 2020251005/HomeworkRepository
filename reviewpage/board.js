@@ -10,7 +10,7 @@ async function dataSet() {
     _storageData = JSON.parse(window.localStorage.getItem('storageList'));
     return _storageData == null || _storageData.length < 0 ? true : false;
   }
-  if(check()) { //로컬스토리지 storageList 내용이 없을때만 .json 데이터를 읽어들여 로컬스토리지에 넣는다.
+  if(check()) { //storageList 내용이 없을때만 .json 데이터를 읽어들여 로컬스토리지에 넣는다.
     const data = await fetch("./data.json")
     .then(response => {
       return response.json();
@@ -18,7 +18,7 @@ async function dataSet() {
     window.localStorage.setItem('storageList',JSON.stringify(data));
   }
   boardListAction(); //게시물 목록 바인딩
-  renderPagination(_storageData, _page); //페이징 바인딩
+  renderPagination(_storageData, _page); //페이징
 }
 
 function modalModeSet() {
@@ -57,7 +57,7 @@ function boardSave() {
 
 
 
-//로컬스토리지의 내용을 읽어서 테이블에 데이터를 바인딩시킨다. 
+//내용을 읽어서 테이블에 데이터를 넣는다. 
 function boardListAction() {
   const dataTable = document.getElementById('dataTable');
   boardListRemove();
@@ -229,17 +229,12 @@ function includeHTML() {
 }
 includeHTML();
 
+//날짜 기록
 function dateFormat(dateNum) {
   const date = new Date(dateNum);
   const year = date.getFullYear();
   const month = ('0' + (date.getMonth() + 1)).slice(-2);
   const day = ('0' + date.getDate()).slice(-2);
-  const hour = ('0' + date.getHours()).slice(-2);
-  const min = ('0' + date.getMinutes()).slice(-2);
-  const seconds = ('0' + date.getSeconds()).slice(-2);
-  let result = '';
-  if (dateNum !== 0) {
-    result = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + seconds;
-  }
+  let result = year + '-' + month + '-' + day;
   return result;
 }
